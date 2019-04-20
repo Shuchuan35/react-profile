@@ -7,10 +7,16 @@ class About extends Component {
         <section id="about">
           <div className="row">
             <div className="three columns">
-              <img className="profile-pic" src="images/profilepic.jpg" alt />
+              <img className="profile-pic" src="images/profilepic.jpg" alt="profilepic" />
             </div>
             <div className="nine columns main-col">
               <h2>About Me</h2>
+              <p>Full Stack Web Developer with a background in Java programming and Medical Interpretation Training and a passion
+                for creating clean code and user-friendly applications.  Effective at combining creativity and problem solving
+                to develop user-friendly applications. Successfully graduated from the Georgia Tech Coding boot camp completed
+                five full stack web applications from mockup to deployment. Proficient in the MERN Stack and a fast learner who 
+                enjoy life-long dedication to learning.
+              </p>
               <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,
                 eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
                 voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
@@ -22,12 +28,9 @@ class About extends Component {
                 <div className="columns contact-details">
                   <h2>Contact Details</h2>
                   <p className="address">
-                    <span>Jonathan Doe</span><br />
-                    <span>1600 Amphitheatre Parkway<br />
-                      Mountain View, CA 94043 US
-                  </span><br />
-                    <span>(123)456-7890</span><br />
-                    <span>anyone@website.com</span>
+                    <span>Jennifer Hou</span><br />
+                    <span>Peachtree Corners, GA 30092 US</span><br />
+                    <span>(678) 777-4928</span><br />
                   </p>
                 </div>
                 <div className="columns download">

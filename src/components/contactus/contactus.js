@@ -5,7 +5,7 @@ export default class Contactus extends Component {
       <React.Fragment>
     
     <section id="contact">
-        <div className="row section-head">
+        {/* <div className="row section-head">
           <div className="two columns header-col">
             <h1><span>Get In Touch.</span></h1>
           </div>
@@ -15,7 +15,7 @@ export default class Contactus extends Component {
               voluptatem quia voluptas sit aspernatur aut odit aut fugit.
             </p>
           </div>
-        </div>
+        </div> */}
         <div className="row">
           <div className="eight columns">
             {/* form */}
@@ -40,7 +40,7 @@ export default class Contactus extends Component {
                 <div>
                   <button className="submit">Submit</button>
                   <span id="image-loader">
-                    <img alt src="images/loader.gif" />
+                    <img alt="loading" src="images/loader.gif" />
                   </span>
                 </div>
               </fieldset>
@@ -56,13 +56,12 @@ export default class Contactus extends Component {
             <div className="widget widget_contact">
               <h4>Address and Phone</h4>
               <p className="address">
-                Jonathan Doe<br />
-                1600 Amphitheatre Parkway <br />
-                Mountain View, CA 94043 US<br />
-                <span>(123) 456-7890</span>
+                Jennifer Hou<br />
+                Peachtree Corners, GA 30092 US<br />
+                <span>(678) 777-4928</span>
               </p>
             </div>
-            <div className="widget widget_tweets">
+            {/* <div className="widget widget_tweets">
               <h4 className="widget-title">Latest Tweets</h4>
               <ul id="twitter">
                 <li>
@@ -82,7 +81,7 @@ export default class Contactus extends Component {
                   <b><a href="#">3 Days Ago</a></b>
                 </li>
               </ul>
-            </div>
+            </div> */}
           </aside>
         </div>
       </section>
