@@ -1,90 +1,111 @@
 import React, { Component } from 'react';
+import * as emailjs from 'emailjs-com';
+
 export default class Contactus extends Component {
+  state = {
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  }
+
+  handleChange = e => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
+  }
+
+  formSubmit = e => {
+    e.preventDefault();
+    const params = {
+      from_name: this.state.name,
+      from_email: this.state.email,
+      subject: this.state.subject,
+      message: this.state.message
+    }
+    console.log(this.state.name);
+    console.log(this.state.email);
+    console.log(this.state.subject);
+    console.log(this.state.message);
+    // emailjs.send('gmail', 'formsubmit', params, 'user_ISBvizalqrfttKA25yz7y')
+    //   .then((response) => {
+    //     console.log('SUCCESS!', response.status, response.text);
+    //     this.setState({ name: '', email: '', subject: '', message: '' });
+    //   }, (err) => {
+    //     console.log('FAILED...', err);
+
+    //   });
+  }
+
   render() {
     return (
       <React.Fragment>
-    
-    <section id="contact">
-        {/* <div className="row section-head">
-          <div className="two columns header-col">
-            <h1><span>Get In Touch.</span></h1>
-          </div>
-          <div className="ten columns">
-            <p className="lead">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,
-              eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
-              voluptatem quia voluptas sit aspernatur aut odit aut fugit.
-            </p>
-          </div>
-        </div> */}
-        <div className="row">
-          <div className="eight columns">
-            {/* form */}
-            <form action method="post" id="contactForm" name="contactForm">
-              <fieldset>
-                <div>
-                  <label htmlFor="contactName">Name <span className="required">*</span></label>
-                  <input type="text" defaultValue size={35} id="contactName" name="contactName" />
+        <section id="contact">
+          <div className="row">
+            <div className="eight columns">
+              {/* form */}
+              <form className="contact-form" onSubmit={this.formSubmit}>
+                <label htmlFor="message-name">Your Name <span className="required">*</span></label>
+                <input onChange={this.handleChange} name="name" type="text" placeholder="Your Name" required value={this.state.name} />
+
+                <label htmlFor="message-email">Your Email <span className="required">*</span></label>
+                <input onChange={this.handleChange} name="email" type="email" placeholder="your@email.com" required value={this.state.email} />
+
+                <label htmlFor="message-subject">Subject <span className="required">*</span></label>
+                <input onChange={this.handleChange} name="subject"  type="text" placeholder="Subject" required value={this.state.subject} />
+
+                <label htmlFor="message-input">Message <span className="required">*</span></label>
+                <textarea onChange={this.handleChange} name="message" type="text" placeholder="Please write your message here" required value={this.state.message} />
+
+                <div className="button--container">
+                  <button type="submit" className="submit">Submit</button>
                 </div>
-                <div>
-                  <label htmlFor="contactEmail">Email <span className="required">*</span></label>
-                  <input type="text" defaultValue size={35} id="contactEmail" name="contactEmail" />
-                </div>
-                <div>
-                  <label htmlFor="contactSubject">Subject</label>
-                  <input type="text" defaultValue size={35} id="contactSubject" name="contactSubject" />
-                </div>
-                <div>
-                  <label htmlFor="contactMessage">Message <span className="required">*</span></label>
-                  <textarea cols={50} rows={15} id="contactMessage" name="contactMessage" defaultValue={""} />
-                </div>
-                <div>
-                  <button className="submit">Submit</button>
-                  <span id="image-loader">
-                    <img alt="loading" src="images/loader.gif" />
-                  </span>
-                </div>
-              </fieldset>
-            </form> {/* Form End */}
-            {/* contact-warning */}
-            <div id="message-warning"> Error boy</div>
-            {/* contact-success */}
-            <div id="message-success">
-              <i className="fa fa-check" />Your message was sent, thank you!<br />
+              </form>
+              {/* <form id="contactForm" name="contactForm">
+                <fieldset>
+                  <div>
+                    <label htmlFor="contactName">Name <span className="required">*</span></label>
+                    <input type="text" id="contactName" name="contactName" />
+                  </div>
+                  <div>
+                    <label htmlFor="contactEmail">Email <span className="required">*</span></label>
+                    <input type="text" id="contactEmail" name="contactEmail" />
+                  </div>
+                  <div>
+                    <label htmlFor="contactSubject">Subject</label>
+                    <input type="text" id="contactSubject" name="contactSubject" />
+                  </div>
+                  <div>
+                    <label htmlFor="contactMessage">Message <span className="required">*</span></label>
+                    <textarea id="contactMessage" name="contactMessage" />
+                  </div>
+                  <div>
+                    <button className="submit"  >Submit</button>
+                    <span id="image-loader">
+                      <img alt="loading" src="images/loader.gif" />
+                    </span>
+                  </div>
+                </fieldset>
+              </form>  */}
+              {/* contact-warning */}
+              <div id="message-warning"> Error boy</div>
+              {/* contact-success */}
+              <div id="message-success">
+                <i className="fa fa-check" />Your message was sent, thank you!<br />
+              </div>
             </div>
+            <aside className="four columns footer-widgets">
+              <div className="widget widget_contact">
+                <h4>Address and Phone</h4>
+                <p className="address">
+                  Jennifer Hou<br />
+                  Peachtree Corners, GA 30092 US<br />
+                  <span>(678) 777-4928</span>
+                </p>
+              </div>
+            </aside>
           </div>
-          <aside className="four columns footer-widgets">
-            <div className="widget widget_contact">
-              <h4>Address and Phone</h4>
-              <p className="address">
-                Jennifer Hou<br />
-                Peachtree Corners, GA 30092 US<br />
-                <span>(678) 777-4928</span>
-              </p>
-            </div>
-            {/* <div className="widget widget_tweets">
-              <h4 className="widget-title">Latest Tweets</h4>
-              <ul id="twitter">
-                <li>
-                  <span>
-                    This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
-                    Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum
-                    <a href="#">http://t.co/CGIrdxIlI3</a>
-                  </span>
-                  <b><a href="#">2 Days Ago</a></b>
-                </li>
-                <li>
-                  <span>
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,
-                    eaque ipsa quae ab illo inventore veritatis et quasi
-                    <a href="#">http://t.co/CGIrdxIlI3</a>
-                  </span>
-                  <b><a href="#">3 Days Ago</a></b>
-                </li>
-              </ul>
-            </div> */}
-          </aside>
-        </div>
-      </section>
+        </section>
       </React.Fragment>
     );
   }
