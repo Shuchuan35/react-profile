@@ -16,7 +16,7 @@ export default class Contactus extends Component {
     this.setState({ [name]: value });
   }
 
-  formSubmit = e => {
+  handleSubmit = e => {
     e.preventDefault();
     if (!e.target.checkValidity()) {
       return;
@@ -49,7 +49,7 @@ export default class Contactus extends Component {
           <div className="row">
             <div className="eight columns">
               {/* form */}
-              <form className="contact-form" onSubmit={this.formSubmit}>
+              <form className="contact-form" onSubmit={this.handleSubmit}>
                 <label htmlFor="message-name">Your Name <span className="required">*</span></label>
                 <input onChange={this.handleChange} name="name" type="text" placeholder="Your Name" required value={this.state.name} />
 
@@ -63,7 +63,7 @@ export default class Contactus extends Component {
                 <textarea onChange={this.handleChange} name="message" type="text" placeholder="Please write your message here" required value={this.state.message} />
 
                 <div className="button--container">
-                  <button type="submit" className="submit">Submit</button>
+                  <button type="submit" className="submit">Send Message</button>
                   
                   {this.state.isImageLoader &&
                     <div style={{ display: 'inline-block' }}>
