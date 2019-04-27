@@ -11,12 +11,6 @@ class About extends Component {
             </div>
             <div className="nine columns main-col">
               <h2>About Me</h2>
-              <p>Full Stack Web Developer with a background in Java programming and Medical Interpretation Training and a passion
-                for creating clean code and user-friendly applications.  Effective at combining creativity and problem solving
-                to develop user-friendly applications. Successfully graduated from the Georgia Tech Coding boot camp completed
-                five full stack web applications from mockup to deployment. Proficient in the MERN Stack and a fast learner who 
-                enjoy life-long dedication to learning.
-              </p>
               <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,
                 eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
                 voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
@@ -35,7 +29,7 @@ class About extends Component {
                 </div>
                 <div className="columns download">
                   <p>
-                    {/* <a href="#" className="button"><i className="fa fa-download" />Download Resume</a> */}
+                    <a href="#" className="button"><i className="fa fa-download" />Download Resume</a>
                   </p>
                 </div>
               </div> {/* end row */}

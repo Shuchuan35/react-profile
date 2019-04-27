@@ -7,7 +7,8 @@ export default class Contactus extends Component {
     email: '',
     subject: '',
     message: '',
-    isImageLoader: false
+    isImageLoader: false,
+    isSubmitted: false
   }
 
   handleChange = e => {
@@ -32,14 +33,14 @@ export default class Contactus extends Component {
     console.log(this.state.email);
     console.log(this.state.subject);
     console.log(this.state.message);
-    // emailjs.send('gmail', 'formsubmit', params, 'user_ISBvizalqrfttKA25yz7y')
-    //   .then((response) => {
-    //     console.log('SUCCESS!', response.status, response.text);
-    //     this.setState({ name: '', email: '', subject: '', message: '', isImageLoader: false });
-    //   }, (err) => {
-    //     console.log('FAILED...', err);
-
-    //   });
+    emailjs.send('gmail', 'formsubmit', params, 'user_ISBvizalqrfttKA25yz7y')
+      .then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
+        this.setState({ name: '', email: '', subject: '', message: '', isImageLoader: false, isSubmitted: true });
+      }, (err) => {
+        console.log('FAILED...', err);
+        this.setState({ isImageLoader: false, isSubmitted: false });
+      });
   }
 
   render() {
@@ -64,7 +65,6 @@ export default class Contactus extends Component {
 
                 <div className="button--container">
                   <button type="submit" className="submit">Send Message</button>
-                  
                   {this.state.isImageLoader &&
                     <div style={{ display: 'inline-block' }}>
                       <img alt="submitting" src="images/loader.gif" />
@@ -75,9 +75,9 @@ export default class Contactus extends Component {
               {/* contact-warning */}
               <div id="message-warning"> Error boy</div>
               {/* contact-success */}
-              <div id="message-success">
+              {this.state.isSubmitted && <div id="message-success">
                 <i className="fa fa-check" />Your message was sent, thank you!<br />
-              </div>
+              </div>}
             </div>
             <aside className="four columns footer-widgets">
               <div className="widget widget_contact">
