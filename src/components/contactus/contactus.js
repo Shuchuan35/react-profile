@@ -36,7 +36,14 @@ export default class Contactus extends Component {
     emailjs.send('gmail', 'formsubmit', params, 'user_ISBvizalqrfttKA25yz7y')
       .then((response) => {
         console.log('SUCCESS!', response.status, response.text);
-        this.setState({ name: '', email: '', subject: '', message: '', isImageLoader: false, isSubmitted: true });
+        this.setState({
+          name: '',
+          email: '',
+          subject: '',
+          message: '',
+          isImageLoader: false,
+          isSubmitted: true
+        });
       }, (err) => {
         console.log('FAILED...', err);
         this.setState({ isImageLoader: false, isSubmitted: false });
