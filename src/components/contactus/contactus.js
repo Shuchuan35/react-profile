@@ -28,11 +28,9 @@ export default class Contactus extends Component {
       subject: this.state.subject,
       message: this.state.message
     }
+
     this.setState({ isImageLoader: true });
-    console.log(this.state.name);
-    console.log(this.state.email);
-    console.log(this.state.subject);
-    console.log(this.state.message);
+
     emailjs.send('gmail', 'formsubmit', params, 'user_ISBvizalqrfttKA25yz7y')
       .then((response) => {
         console.log('SUCCESS!', response.status, response.text);
@@ -44,6 +42,7 @@ export default class Contactus extends Component {
           isImageLoader: false,
           isSubmitted: true
         });
+        setTimeout(() => this.setState({ isSubmitted: false }), 4000);
       }, (err) => {
         console.log('FAILED...', err);
         this.setState({ isImageLoader: false, isSubmitted: false });
@@ -80,11 +79,12 @@ export default class Contactus extends Component {
                 </div>
               </form>
               {/* contact-warning */}
-              <div id="message-warning"> Error boy</div>
+              <div id="message-warning"> Error!</div>
               {/* contact-success */}
-              {this.state.isSubmitted && <div id="message-success">
-                <i className="fa fa-check" />Your message was sent, thank you!<br />
-              </div>}
+              {this.state.isSubmitted &&
+                <div id="message-success" style={{ display: 'inline-block' }}>
+                  <i className="fa fa-check" />Your message was sent, thank you!<br />
+                </div>}
             </div>
             <aside className="four columns footer-widgets">
               <div className="widget widget_contact">
